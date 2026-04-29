@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Anime Offis Ads</title>
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: #0a0c10; color: white; display: flex; flex-direction: column; align-items: center; padding-top: 50px;">
+
+    <h1>Integración de Anuncios Anime Offis</h1>
+
+    <div class="ao-player-wrapper" style="width: 80%; max-width: 800px; position: relative;">
+        <div id="ad-notice" class="ao-ad-label">PROMOCIÓN ANIME OFFIS</div>
+        
+        <video id="main-player" class="video-js vjs-fluid vjs-big-play-centered" controls preload="auto">
+            <p class="vjs-no-js">Para ver este video, por favor habilita JavaScript.</p>
+        </video>
+    </div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+    <script type="module">
+        import { AnimeOffisAds } from './ads-helper.js';
+
+        const player = videojs('main-player');
+        const adNotice = document.getElementById('ad-notice');
+        let isAdPlaying = true;
+
+        async function initPlayer() {
+            const adUrl = await AnimeOffisAds.fetchAdVideo();
+
+            if (adUrl) {
+                // Cargar el anuncio obtenido de la API
+                player.src({ type: 'video/mp4', src: adUrl });
+                
+                player.on('play', () => {
+                    if (isAdPlaying) adNotice.style.display = 'block';
+                });
+
+                player.one('ended', () => {
+                    playMainContent();
+                });
+            } else {
+                playMainContent();
+            }
+        }
+
+        function playMainContent() {
+            isAdPlaying = false;
+            adNotice.style.display = 'none';
+            
+            // Aquí el usuario cargaría su propio contenido (Anime)
+            player.src({ type: 'video/mp4', src: 'https://vjs.zencdn.net/v/oceans.mp4' });
+            player.play();
+        }
+
+        initPlayer();
+    </script>
+</body>
+</html>
+
