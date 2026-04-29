@@ -16,4 +16,4 @@ Endpoint global para obtener anuncios en formato XML:
 
 ---
 **Desarrollado por Anime Offis AF GDL México.**
-*Director Creativo: Destiny (Sergio Javier Martínez)*
+*Director Creativo: Destiny Martinez*
