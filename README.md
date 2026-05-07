@@ -1,63 +1,61 @@
-# 🚀 Anime Offis Ads SDK
+==================================================================
+        ANIME OFFIS ADS - DOCUMENTACIÓN OFICIAL PARA SOCIOS
+==================================================================
 
-El SDK oficial de **Anime Offis AF GDL México** para la integración de publicidad dinámica basada en el estándar VAST 3.0. Diseñado para ofrecer una infraestructura publicitaria estable, rápida y rentable para la comunidad de anime.
+Anime Offis Ads es una plataforma de monetización publicitaria de alto 
+rendimiento para sitios web de anime y contenido multimedia.
 
-## 📌 ¿Qué es Anime Offis Ads?
-Es una solución integral que permite a desarrolladores de sitios web y aplicaciones de anime gestionar espacios publicitarios de forma automatizada. A través de nuestra red, puedes mostrar anuncios de alta calidad y participar en nuestro ecosistema de recompensas.
+1. ¿CÓMO FUNCIONA EL SISTEMA?
+------------------------------------------------------------------
+El sistema opera bajo una arquitectura de tres pilares:
 
----
+* SDK Inteligente: Un script ligero que se integra en tu sitio web. 
+  Este detecta la presencia de reproductores de video y gestiona 
+  la lógica de los anuncios.
+* Distribución vía CDN: Los anuncios y el código se sirven desde 
+  nuestra red de entrega de contenidos (cdn.animeoffis.com).
+* Registro en Tiempo Real: Cada interacción se envía de forma 
+  encriptada a nuestra base de datos para actualizar tus 
+  estadísticas y saldo al instante.
 
-## 🔗 Infraestructura Global
-Utilizamos **Cloudflare Edge Computing** para garantizar que los anuncios carguen instantáneamente en cualquier parte del mundo.
+2. MANEJO DE ANUNCIOS
+------------------------------------------------------------------
+Implementamos anuncios de formato Pre-roll (antes del video):
 
-* **Endpoint Global:** `https://ads.animeoffis.com`
-* **Formato:** VAST 3.0 (XML) / MP4 Progresivo.
-* **Colores de Marca:** Cian (`#00aaff`) y Magenta (`#ff00aa`).
+* Rotación Dinámica: Selección automática de los mejores anuncios.
+* Compatibilidad: Optimizado para VideoJS y reproductores móviles.
+* Transparencia: Solo se contabilizan impresiones verificadas.
 
----
+3. PAGOS Y GANANCIAS
+------------------------------------------------------------------
+Tu tarifa por vista depende de tu nivel de socio:
 
-## 💰 Programa de Monetización (Aportadores)
-No solo servimos anuncios; ayudamos a que tu proyecto crezca. Los sitios web que integren nuestro SDK pueden calificar para recibir recompensas basadas en impresiones reales y verificadas.
+- Socio Base: Tarifa Estándar + Dashboard en tiempo real.
+- Socio Avanzado: Tarifa Plus + Soporte prioritario.
+- Socio Experto: Tarifa Máxima + Campañas premium.
 
-### ¿Cómo participar?
-1.  **Solicita tu ID:** Contacta con la dirección creativa (**Destiny Martinez**) para obtener tu `Publisher ID` único.
-2.  **Activa el Tracking:** Integra tu ID en la solicitud para que nuestro sistema contabilice tus impresiones.
-3.  **Recibe Recompensas:** Los pagos se procesan de manera programada según el volumen de tráfico verificado y la calidad de las impresiones.
+Las ganancias se calculan en USD y se monitorean en el Portal:
+URL: https://www.animeoffis.com/panelads
 
----
+4. CÓMO OBTENER TU ID DE SOCIO (PASOS)
+------------------------------------------------------------------
+Para garantizar la seguridad y el orden, el registro se realiza
+únicamente a través de nuestra comunidad oficial:
 
-## 🛠️ Guía de Integración
+1. Únete a nuestro servidor de Discord: https://discord.gg/jATMaYbKx
+2. Dirígete al canal de soporte y ABRE UN TICKET.
+3. Proporciona el nombre de tu sitio y la URL.
+4. Una vez validado, recibirás tu ID único (AO-XXXXXX).
 
-### 1. Preparación
-Copia los archivos `ads-helper.js` y `styles.css` (disponibles en este repositorio) en la raíz de tu proyecto.
+5. IMPLEMENTACIÓN (INSTALACIÓN DEL SCRIPT)
+------------------------------------------------------------------
+Copia y pega la siguiente línea antes de la etiqueta </body> en tu HTML:
 
-### 2. Implementación de Código
-Importa el SDK y configura tu `Publisher ID` para empezar a contar impresiones:
+<script src="https://cdn.animeoffis.com/sdk.js?id=TU_ID_DE_SOCIO"></script>
 
-```javascript
-import { AnimeOffisAds } from './ads-helper.js';
+* IMPORTANTE: Sustituye "TU_ID_DE_SOCIO" por tu código AO-XXXXXX personal.
 
-async function iniciarPublicidad() {
-    // Reemplaza 'GUEST' con tu ID de aportador para monetizar
-    const adUrl = await AnimeOffisAds.fetchAdVideo('TU_PUBLISHER_ID');
-
-    if (adUrl) {
-        // Ejemplo con Video.js
-        player.src({ type: 'video/mp4', src: adUrl });
-        console.log("Cargando anuncio de Anime Offis...");
-    }
-}
-3. Instalación vía NPM (Beta)
-Estamos preparando nuestra librería oficial para gestores de paquetes para facilitar la actualización automática:
-npm install @animeoffis/ads-sdk (Próximamente)
-📊 Sistema de Métricas y Transparencia
-Nuestro sistema de backend basado en Cloudflare detecta automáticamente:
-Impresiones: Peticiones exitosas desde dominios autorizados y únicos.
-Validación: Seguimiento de visualización para asegurar que el contenido sea visto por usuarios reales.
-Seguridad: Filtros avanzados anti-bot para proteger la integridad de la red y asegurar pagos justos.
-📄 Licencia y Créditos
-Este software se distribuye bajo la licencia MIT. Eres libre de usarlo en proyectos personales o comerciales siempre que se mantenga el crédito correspondiente.
+------------------------------------------------------------------
 Desarrollado por Anime Offis AF GDL México.
-Fundador / Director Creativo: Destiny Martinez
-Mascota Oficial: Styceht (Pronunciado: Cyset)
-© 2026 Anime Offis - Transformando la comunidad del Anime.
+Dirección Técnica y Creativa: (Destiny)
+==================================================================
